@@ -13,6 +13,9 @@ def analyze(txt:str):
     sign = []
     number = []
     identifier = []
+    pattern = r"(?P<reserved>entero|decimal|booleano|cadena|si|sino|mientras|hacer|verdadero|falso)|(?P<operator>\+|-|\*|\/|%|==|=|<|>|>=|<=)|(?P<sign>\(|\)|\{|\}|\"|;)|(?P<number>\b\d+\b)|(?P<id>[a-zA-Z](?:[a-zA-Z]|\d)*)"
+    for match in re.finditer(pattern=pattern, string=txt):
+        print(match.group(), match.lastgroup, match.start(), match.span())
 
     lines:list[str] = txt.splitlines()
     for index in range(len(lines)):
