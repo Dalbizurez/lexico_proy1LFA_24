@@ -18,16 +18,16 @@ def analyze(txt:str):
     for index in range(len(lines)):
         line = lines[index]
         for r in re.finditer(RESERVADA, line):
-            reserved.append((r.group(), index, r.start(), txt.count(r.group())))
+            reserved.append((r.group(), "Palabra reservada",index, r.start(), txt.count(r.group())))
         for o in re.finditer(OPERADOR, line):
-            operator.append((o.group(), index, o.start(), txt.count(o.group())))
+            operator.append((o.group(),"Operador", index, o.start(), txt.count(o.group())))
         for s in re.finditer(SIGNO, line):
-            sign.append((s.group(), index, s.start(), txt.count(s.group())))
+            sign.append((s.group(), "Signo", index, s.start(), txt.count(s.group())))
         for n in re.finditer(NUMERO, line):
-            number.append((n.group(), index, n.start(), txt.count(n.group())))
+            number.append((n.group(), "Numero", index, n.start(), txt.count(n.group())))
         for i in re.finditer(IDENTIFICADOR, line):
             if not re.search(RESERVADA, i.group()):
-                identifier.append((i.group(), index, i.start(), txt.count(i.group())))
+                identifier.append((i.group(), "Identificador",index, i.start(), txt.count(i.group())))
 
 
     return reserved, operator, sign, number, identifier
