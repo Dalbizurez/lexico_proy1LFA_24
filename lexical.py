@@ -32,21 +32,15 @@ def analyze(txt:str):
 
     return reserved, operator, sign, number, identifier
 
-txt = """
-entero 45 d;
-decimal tr4 booleano;
-tr4=verdadero;
-cadena = "{45} Gabriel(Gonzales)"
-si 45 == 45 {
-    hacer falso
-}
-"""
-lines = txt.splitlines()
-for index in range(len(lines)):
-    line = lines[index]
-    matches = re.finditer(RESERVADA, line) 
-    for m in matches:
-        print(m.span(), m.group(), index)
-
-tokens = analyze(txt)
-print(tokens)
+if __name__=="__main__":
+    txt = """
+    entero 45 d;
+    decimal tr4 booleano;
+    tr4=verdadero;
+    cadena = "{45} Gabriel(Gonzales)"
+    si 45 == 45 {
+        hacer falso
+    }
+    """
+    tokens = analyze(txt)
+    print(tokens)
