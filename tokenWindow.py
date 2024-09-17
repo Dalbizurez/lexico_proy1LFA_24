@@ -9,19 +9,21 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(537, 246)
-        self.verticalLayout = QtWidgets.QVBoxLayout(Form)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.tblTokens = QtWidgets.QTableView(parent=Form)
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(591, 284)
+        self.horizontalLayout = QtWidgets.QHBoxLayout(Dialog)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.tblTokens = QtWidgets.QTableWidget(parent=Dialog)
         self.tblTokens.setObjectName("tblTokens")
-        self.verticalLayout.addWidget(self.tblTokens)
+        self.tblTokens.setColumnCount(0)
+        self.tblTokens.setRowCount(0)
+        self.horizontalLayout.addWidget(self.tblTokens)
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
