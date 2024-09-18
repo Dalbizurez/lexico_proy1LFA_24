@@ -11,6 +11,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__()
         self.setupUi(self)
 
+        self.btnLimpiar.clicked.connect(lambda:self.txtOgText.clear())
+
         self.btnAnalyze.clicked.connect(lambda:self.lexycalResult(lexycalAnalysis(self.txtOgText.toPlainText())))
         self.actionOpen.triggered.connect(lambda: self.openFile(QFileDialog.getOpenFileName(self, "Seleccionar archivo", "", "Archivos de texto (*.txt)")))
 
