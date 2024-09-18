@@ -13,8 +13,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.btnLimpiar.clicked.connect(lambda:self.txtOgText.clear())
 
-        #self.btnAnalyze.clicked.connect(lambda:self.lexycalResult(lexycalAnalysis(self.txtOgText.toPlainText())))
-        self.btnAnalyze.clicked.connect(lambda:self.result(analyze(self.txtOgText.toPlainText())))
+        self.btnAnalyze.clicked.connect(lambda:self.lexycalResult(lexycalAnalysis(self.txtOgText.toPlainText())))
+        #self.btnAnalyze.clicked.connect(lambda:self.result(analyze(self.txtOgText.toPlainText())))
         self.actionOpen.triggered.connect(lambda: self.openFile(QFileDialog.getOpenFileName(self, "Seleccionar archivo", "", "Archivos de texto (*.txt)")))
 
         self.tokensDialog = TokensDialog()
